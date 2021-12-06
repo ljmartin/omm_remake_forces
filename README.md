@@ -2,10 +2,12 @@
 remaking OpenMM forces with Custom\*Forces
 
 This repo demonstrates how to replace the 'native' forces in OpenMM - `HarmonicBondForce`, `HarmonicAngleForce`, `PeriodicTorsionForce`, and `NonbondedForce` - with Custom\*Force versions. To run one of these, simply run `python remake_bonds_force.py` (or any of the other force types). This generates `System` objects with or without a Custom\*Force and prints the energies to demonstrate they are equivalent. For example:
+
+in:
 ```
 python remake_bonds_force.py; python remake_angles_force.py; python remake_torsions_force.py; python remake_nonbonded_force.py
 ```
-out (see :rotating_light: below for why remaking the NonbondedForces compares a different total energy to the other systems):
+out: (see :rotating_light: below for why remaking the NonbondedForces compares a different total energy to the other systems)
 ```
 Total force using OpenMM-derived forces:
 	 -107896.91075643156 kJ/mol
