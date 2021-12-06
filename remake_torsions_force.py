@@ -14,7 +14,7 @@ print('Total force using OpenMM-derived forces:\n\t', simulation.context.getStat
 
 
 
-#make system with CustomBondForce,
+#make system with CustomRemakeForce,
 #and print potential energy:
 def replaceTorsions(system):
     forces = system.getForces()

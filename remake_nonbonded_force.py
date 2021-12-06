@@ -20,7 +20,7 @@ print('Total force using OpenMM-derived forces:\n\t', simulation.context.getStat
 
 
 
-#make system with CustomBondForce,
+#make system with CustomNonbondedForce + CustomBondedForce (for exceptions)
 #and print potential energy:
 def replaceNonbonded(system):
     forces = system.getForces()
