@@ -1,7 +1,31 @@
 # omm_remake_forces
 remaking OpenMM forces with Custom\*Forces
 
-This repo demonstrates how to replace the 'native' forces in OpenMM - `HarmonicBondForce`, `HarmonicAngleForce`, `PeriodicTorsionForce`, and `NonbondedForce` - with Custom\*Force versions. To run one of these, simply run `python remake_bonds_force.py` (or any of the other force types). This generates `System` objects with or without a Custom\*Force and prints the energies to demonstrate they are equivalent. The input file is a PDB of protein in solvent+ions from the `share` installed with OpenMM (typically run using `simulatePdb.py`).
+This repo demonstrates how to replace the 'native' forces in OpenMM - `HarmonicBondForce`, `HarmonicAngleForce`, `PeriodicTorsionForce`, and `NonbondedForce` - with Custom\*Force versions. To run one of these, simply run `python remake_bonds_force.py` (or any of the other force types). This generates `System` objects with or without a Custom\*Force and prints the energies to demonstrate they are equivalent. For example:
+```
+python remake_bonds_force.py; python remake_angles_force.py; python remake_torsions_force.py; python remake_nonbonded_force.py
+```
+out (see :rotating_light: below for why remaking the NonbondedForces compares a different total energy to the other systems):
+```
+Total force using OpenMM-derived forces:
+	 -107896.91075643156 kJ/mol
+Total force using custom forces:
+	 -107896.91075643156 kJ/mol
+Total force using OpenMM-derived forces:
+	 -107896.91075643156 kJ/mol
+Total force using custom forces:
+	 -107896.91075643156 kJ/mol
+Total force using OpenMM-derived forces:
+	 -107896.91075643156 kJ/mol
+Total force using custom forces:
+	 -107896.91075643156 kJ/mol
+Total force using OpenMM-derived forces:
+	 -107055.8852928183 kJ/mol
+Total force using custom forces:
+	 -107055.88443283795 kJ/mol
+```
+
+The input file is a PDB of protein in solvent+ions from the `share` installed with OpenMM (typically run using `simulatePdb.py`).
 
 Some of the code is hidden away in `boilerplate.py`. This is just for readability. The code is just to instantiate the `System` and `Simulation` objects and so it's relatively uninteresting:
 ```python
